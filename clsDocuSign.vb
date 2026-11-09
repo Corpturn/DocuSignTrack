@@ -71,7 +71,7 @@ Public Class clsDocuSign
             Dim mDateViewed As Nullable(Of DateTime)
             Dim mDateCompleted As Nullable(Of DateTime)
             Dim mDateDeclined As Nullable(Of DateTime)
-            Dim mAttachedDocID As Integer
+            Dim mAttachedDocID As Integer, i As Integer = 0
 
 
             'then go through each envelope and check status via API
@@ -80,8 +80,9 @@ Public Class clsDocuSign
                 Dim mDatesent As Date = row("DateSent")
                 Dim mID As String = row("LeadID").ToString()
                 Dim mDocDesc As String = row("DocumentDesc").ToString()
+                i = i + 1
 
-                Console.WriteLine("Processing DocuSign envelopes!")
+                Console.WriteLine("Processing DocuSign envelopes; " & i.ToString & "/" & EnvelopeCount.ToString & " - " & mDatesent.ToString)
 
                 Try
                     SavePath = "C:\PayOff\TempFax\" & row("DocumentDesc") & "_" & mDatesent.ToString("yyyy_MM_dd") & ".pdf"
