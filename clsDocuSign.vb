@@ -36,7 +36,7 @@ Public Class clsDocuSign
 
     Public Shared Sub ProcessEnvelopes()
         Try
-            SendProcessReport("Starting DocuSign envelope processing...")
+            'SendProcessReport("Starting DocuSign envelope processing...")
             InitializeVariables()
 
             'get outstanding envelopes from database
@@ -135,7 +135,7 @@ Public Class clsDocuSign
                 End Try
             Next
 
-            SendProcessReport("DocuSign envelope processing completed!")
+            'SendProcessReport("DocuSign envelope processing completed!")
         Catch ex As Exception
             SendProcessReport(ex.Message)
             Console.WriteLine("ProcessEnvelopes " & ex.Message)
